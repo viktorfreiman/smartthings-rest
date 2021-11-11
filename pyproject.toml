@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "py-dev-init"
-version = "0.1.4"
-description = "Kickstart repo"
+name = "smartthings-rest"
+version = "0.1.0"
+description = "Smart and straightforward lib for controlling things with smartthings"
 authors = ["Viktor Freiman <freiman.viktor@gmail.com>"]
 license = "MIT"
 

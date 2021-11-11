@@ -1,18 +1,21 @@
-"""
-This is a docstring
+import os
+from pprint import pprint
 
-`Docs how to write docstring
-<https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`_
-"""
-import requests
+from smartthings_rest import SmartThings
 
 
 def main():
-    """Make a requests to "https://example.com/" """
-    url = "https://example.com/"
-    r = requests.head(url)
+    """
+    personal_access_token (PAT) setup is the same as home-assistant
 
-    print(f"{url} returned {r.status_code}")
+    https://www.home-assistant.io/integrations/smartthings/#personal-access-token-pat
+    """
+    # set PAT with export PAT="your_token"
+    personal_access_token = os.environ.get("PAT", "")
+    print(f"{personal_access_token=}")
+
+    st = SmartThings(personal_access_token)
+    pprint(st.devices())
 
 
 if __name__ == "__main__":

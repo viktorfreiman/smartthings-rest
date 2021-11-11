@@ -1,29 +1,62 @@
-# py-dev-init
+# Smartthings-rest
 
-- [py-dev-init](#py-dev-init)
-  - [Changelog](#changelog)
-    - [v0.1.4](#v014)
-    - [v0.1.3](#v013)
-    - [v0.1.2](#v012)
+NOTE! work in progress
 
-For setup see [development.rst](docs/development.rst)
+Smart and straightforward lib for controlling things with <https://www.smartthings.com/>  
 
-A complete kickstart devcontainer repository for python3  
+- [Smartthings-rest](#smartthings-rest)
+- [simple json printout of all](#simple-json-printout-of-all)
+- [Turn device on](#turn-device-on)
+- [Turn device off](#turn-device-off)
 
-All docs are in the docs folder  
+[Offical smartthings docs](https://developer-preview.smartthings.com/docs/getting-started/welcome)
 
-Source code is in py-dev-init  
+~~~py
+# simple json printout of all 
+from smartthings_rest import SmartThings
 
-## Changelog
+st = SmartThings(personal_access_token)
 
-### v0.1.4
+print(st.devices())
 
-- Fix 2, Added missing dependency for readthedocs
+~~~
 
-### v0.1.3
+~~~text
+Urls to add
 
-- Added missing dependency for readthedocs
+https://api.smartthings.com/v1/devices/deviceId/status
 
-### v0.1.2
+https://api.smartthings.com/v1/devices/deviceId/components/main/capabilities/mediaInputSource/status
 
-- Added link to development
+---
+# Turn device on
+https://api.smartthings.com/v1/devices/deviceId/commands
+
+{
+    "commands": [
+        {
+            "component": "main",
+            "capability": "switch",
+            "command": "on"
+        }
+    ]
+}
+
+# Turn device off
+https://api.smartthings.com/v1/devices/deviceId/commands
+
+{
+    "commands": [
+        {
+            "component": "main",
+            "capability": "switch",
+            "command": "off"
+        }
+    ]
+}
+
+https://api.smartthings.com/v1/capabilities
+
+https://api.smartthings.com/v1/capabilities/switch/1
+
+~~~
