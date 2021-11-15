@@ -6,6 +6,8 @@ Smart and straightforward lib for controlling things with <https://www.smartthin
 
 - [Smartthings-rest](#smartthings-rest)
 - [simple json printout of all](#simple-json-printout-of-all)
+- [draft how working code will look like](#draft-how-working-code-will-look-like)
+- [returns status / bool](#returns-status--bool)
 - [Turn device on](#turn-device-on)
 - [Turn device off](#turn-device-off)
 
@@ -19,6 +21,25 @@ st = SmartThings(personal_access_token)
 
 print(st.devices())
 
+~~~
+
+~~~py
+# draft how working code will look like
+stv = st.device(label="STV")
+
+# returns status / bool
+stv.switch.on
+
+stv.audioVolume.volumeDown
+stv.audioVolume.setVolume = 10
+
+stv.mediaInputSource.setInputSource = "HDM1"
+
+~~~
+
+~~~sh
+export PAT="your_pat"
+python3 hello_smartthings.py
 ~~~
 
 ~~~text

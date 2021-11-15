@@ -17,6 +17,8 @@ def main():
     st = SmartThings(personal_access_token)
     pprint(st.devices())
 
+    # print(st.device("label", "STV"))
+
 
 if __name__ == "__main__":
     main()

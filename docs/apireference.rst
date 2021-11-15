@@ -2,8 +2,11 @@
 API Reference
 =============
 
-.. automodule:: py_dev_init
-    :undoc-members:
+
+.. automodule:: smartthings_rest
+    :members:
+
+.. automodule:: hello_smartthings
     :members:
 
 scripts

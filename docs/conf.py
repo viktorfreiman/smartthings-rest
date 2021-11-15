@@ -149,4 +149,6 @@ rinoh_documents = [
 # replace in all rst files
 rst_prolog = f"""
 .. |project| replace:: {project}
+.. |st| replace:: SmartThings
+.. |pat| replace:: personal access token
 """
