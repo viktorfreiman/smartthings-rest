@@ -1,5 +1,5 @@
 import requests
-
+from pprint import pprint
 
 class SmartThingsError(Exception):
     pass
@@ -37,7 +37,21 @@ class SmartThings:
         r = self._get("capabilities")
         return r["items"]
 
-    # def cap(self, cap_name)
+    def cap(self, cap_name, version=1):
+        r = self._get(f"capabilities/{cap_name}/{version}")
+        out = {
+            "commands": [
+                {
+                    "component": "main",
+                    "capability": cap_name,
+                    "command": "setInputSource",
+                    "arguments": ["HDMI1"],
+                }
+            ]
+        }
+        return out
+
+    # def make_command():
 
     def devices(self):
         """Returns devices"""
@@ -73,13 +87,26 @@ class Device:
     def _version(self, version):
         return version
 
-    def __init__(self, data) -> None:
-        self.component = data["components"][0]["id"]
-        for capabilities in data["components"][0]["capabilities"][0]:
-            setattr(self, )
+    def capability(self, num):
+        """Hello this fund"""
+        pprint(f"{self.__dict__}")
+        print(1 + num)
 
-        for key, value in data.items():
-            setattr(self, key, value)
+    def __init__(self, data) -> None:
+        self.label = data["label"]
+        self.component = data["components"][0]["id"]
+        for capability in data["components"][0]["capabilities"]:
+            # setattr(self, )o
+            # print(capability)
+            setattr(self, capability["id"], Capability)
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.label})"
+
+
+class Capability:
+    def __init__(self) -> None:
+        print("hello init")
+
+    def call(self, num):
+        return 1 + num

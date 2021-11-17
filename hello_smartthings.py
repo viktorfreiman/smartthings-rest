@@ -11,7 +11,7 @@ def main():
     https://www.home-assistant.io/integrations/smartthings/#personal-access-token-pat
     """
     # set PAT with export PAT="your_token"
-    personal_access_token = os.environ.get("PAT", "")
+    personal_access_token = os.environ.get("PAT")
     print(f"{personal_access_token=}")
 
     st = SmartThings(personal_access_token)
