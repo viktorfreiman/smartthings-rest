@@ -29,9 +29,12 @@ stv = st.device(label="STV")
 
 # returns status / bool
 stv.switch.on
+stv.switch("on")
+stv.switch = "on"
 
 stv.audioVolume.volumeDown
 stv.audioVolume.setVolume = 10
+stv.audioVolume.setVolume(10)
 
 stv.mediaInputSource.setInputSource = "HDM1"
 

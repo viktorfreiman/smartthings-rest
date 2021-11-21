@@ -1,6 +1,7 @@
 import requests
 from pprint import pprint
 
+
 class SmartThingsError(Exception):
     pass
 
@@ -88,7 +89,7 @@ class Device:
         return version
 
     def capability(self, num):
-        """Hello this fund"""
+        """Hello from this capability"""
         pprint(f"{self.__dict__}")
         print(1 + num)
 
@@ -98,15 +99,27 @@ class Device:
         for capability in data["components"][0]["capabilities"]:
             # setattr(self, )o
             # print(capability)
-            setattr(self, capability["id"], Capability)
+            setattr(
+                self,
+                capability["id"],
+                Capability(name=capability["id"], version=capability["version"]),
+            )
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.label})"
 
 
 class Capability:
-    def __init__(self) -> None:
-        print("hello init")
+    def __init__(self, name, version) -> None:
+        """Hello init"""
+        self.name = name
+        self.version = version
+
+    def __call__(self, *args, **kwds):
+        """Hello call"""
+        print("you called me")
+        print(f"I am {self.name}")
 
     def call(self, num):
+        print(f"{self.name=}")
         return 1 + num
