@@ -5,6 +5,8 @@ Welcome to |project|'s documentation!
 
 |project| is adaptive to |st|'s api which means that this lib don't need to be updated to work with a change in |st|'s api
 
+To get the PAT check this link https://www.home-assistant.io/integrations/smartthings/
+
 Links
 -----
 
